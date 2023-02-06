@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public new Rigidbody2D rigidbody;
     // Start is called before the first frame update
@@ -15,17 +15,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Vector3.left * Time.deltaTime * 5);
-
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * 5);
-
-        }
-
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -33,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //add upwards force
             print("skjdf");
-            rigidbody.AddForce(new Vector2(0, 1000));
+            rigidbody.AddForce(new Vector2(0, -1000));
 
         }
 
