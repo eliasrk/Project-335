@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //add upwards force
             print("skjdf");
-            rigidbody.AddForce(new Vector2(0, 1000));
+            //rigidbody.AddForce(new Vector2(0, 1000));
 
         }
 

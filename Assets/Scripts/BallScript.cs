@@ -9,13 +9,13 @@ public class BallScript : MonoBehaviour
 
     void Start()
     {
+        rand = Random.Range(-0.3f, 0.3f);
         rigidbody.AddForce(new Vector2(0, 1000));
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector3(rand, direction, 0));
     }
 
 }
