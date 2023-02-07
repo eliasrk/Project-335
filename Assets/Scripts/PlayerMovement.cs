@@ -12,22 +12,25 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-
-        if (Input.GetKey(KeyCode.A))
+        print(transform.position.x);
+        if(transform.position.x < 10.5 ){
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(Vector3.left * Time.deltaTime * 10);
+            transform.Translate(Vector3.right * Time.deltaTime * 30);
         }
-        if (Input.GetKey(KeyCode.D))
+        }
+        if(transform.position.x > -10.5){
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(Vector3.right * Time.deltaTime * 10);
-        }
+            transform.Translate(Vector3.left * Time.deltaTime * 30);
+        }}      
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "ball")
         {
             world.Score();
-            rigidbody.AddForce(new Vector2(0, 100));
+            rigidbody.AddForce(new Vector2(transform.position.x, 100));
         }
     }
 }

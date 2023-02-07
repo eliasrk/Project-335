@@ -42,6 +42,7 @@ public class World : MonoBehaviour
     {   
         if(live > 0){
         live--;
+        SceneManager.LoadScene(0);
         }
         if(score > PlayerPrefs.GetInt("highscore"))
         {
@@ -81,9 +82,9 @@ public class World : MonoBehaviour
           
           highScoreLabel.text = "High Score: " + highscore;
 
+          gameOverScreen.SetActive(true);
           Time.timeScale = 0;
 
-          gameOverScreen.SetActive(true);
       
     }
     

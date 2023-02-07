@@ -20,7 +20,6 @@ public class Delete : MonoBehaviour
         {
             
             world.Save();
-        SceneManager.LoadScene(0);
 
         }
     }

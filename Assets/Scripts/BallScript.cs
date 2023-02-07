@@ -24,12 +24,12 @@ public class BallScript : MonoBehaviour
             if (rigidbody.velocity.y > 0)
             {
                 //add force to make it go up faster
-                rigidbody.AddForce(new Vector2(0, 10));
+                rigidbody.AddForce(new Vector2(transform.position.x, 10));
             }
         }
         if(rigidbody.velocity.y > -10){
             if(rigidbody.velocity.y < 0){
-                rigidbody.AddForce(new Vector2(0, -10));
+                rigidbody.AddForce(new Vector2(transform.position.x, -10));
             }
         }
 

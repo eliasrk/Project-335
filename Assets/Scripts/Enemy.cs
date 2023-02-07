@@ -1,7 +1,5 @@
-using System.Runtime.Serialization;
-using System.Linq;
-using System.Collections;
-using System.Collections.Generic;
+
+
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -13,14 +11,25 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
+        //limit x to between -10.5 and 10.5
+
         float x = ball.CurrentX();
+        if (x > 10.5)
+        {
+            x = 10.5f;
+        }
+        if (x < -10.5)
+        {
+            x = -10.5f;
+        }
+        
             transform.position = new Vector3(x, transform.position.y, transform.position.z);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "ball")
         {
-            rigidbody.AddForce(new Vector2(0, -100));
+            rigidbody.AddForce(new Vector2(transform.position.x, -100));
         }
     }
 }
