@@ -9,8 +9,9 @@ public class BallScript : MonoBehaviour
 
     void Start()
     {
-        rand = Random.Range(-0.3f, 0.3f);
+        rand = Random.Range(-7f, 7f);
         rigidbody.AddForce(new Vector2(0, 1000));
+        rigidbody.AddForce(new Vector2(100* rand, 0));
     }
 
     // Update is called once per frame

@@ -17,12 +17,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * Time.deltaTime * 5);
+            transform.Translate(Vector3.left * Time.deltaTime * 10);
 
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * Time.deltaTime * 5);
+            transform.Translate(Vector3.right * Time.deltaTime * 10);
 
         }
 
@@ -32,10 +32,10 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "ball")
         {
             //add upwards force
-            print("skjdf");
             //rigidbody.AddForce(new Vector2(0, 1000));
 
         }
+
 
     }
 }
