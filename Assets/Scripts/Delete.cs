@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class Delete : MonoBehaviour
 {
+    public World world;
+    public int current;
     void Start()
     {
     }
@@ -14,7 +18,10 @@ public class Delete : MonoBehaviour
     {
         if (collision.gameObject.tag == "ball")
         {
-            Destroy(collision.gameObject);
+            
+            world.Save();
+        SceneManager.LoadScene(0);
+
         }
     }
 }

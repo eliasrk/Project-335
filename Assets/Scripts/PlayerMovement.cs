@@ -5,8 +5,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public new Rigidbody2D rigidbody;
+    public World world;
+    void Start()
+    {
+        
+    }
     void Update()
     {
+
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector3.left * Time.deltaTime * 10);
@@ -20,7 +26,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "ball")
         {
-            rigidbody.AddForce(new Vector2(0, 1000));
+            world.Score();
+            rigidbody.AddForce(new Vector2(0, 100));
         }
     }
 }
