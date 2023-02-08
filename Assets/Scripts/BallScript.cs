@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,9 +13,8 @@ public class BallScript : MonoBehaviour
     // * gives the ball a intial force 
     void Start()
     {
-        rand = Random.Range(-7f, 7f);
-        rigidbody.AddForce(new Vector2(0, 10));
-        rigidbody.AddForce(new Vector2(10 * rand, 0));
+        rand = UnityEngine.Random.Range(-10f, 10f);
+        rigidbody.AddForce(new Vector2(25 * rand, -10));
     }
 
     /* 
@@ -68,7 +68,17 @@ public class BallScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             world.Score();
-            rigidbody.AddForce(new Vector2(transform.position.x, 100));
+            // *    add a bit more side force to the ball
+            int rand = 10;
+            if (transform.position.x > 0)
+            {
+                rand = Math.Abs(rand);
+            }
+            else
+            {
+                rand = -Math.Abs(rand);
+            }
+            rigidbody.AddForce(new Vector2(transform.position.x + rand, 100));
         }
 
     }
