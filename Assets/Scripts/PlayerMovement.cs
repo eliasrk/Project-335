@@ -5,32 +5,47 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public new Rigidbody2D rigidbody;
-    public World world;
     void Start()
     {
-        
+
     }
     void Update()
     {
+        int touchDirection = 0;
+        if (Input.touches.Length > 0)
+        {
+            Touch touch = Input.touches[0];
+            if (touch.position.x < Screen.width / 2)
+            {
+                touchDirection = -1;
+            }
+            else
+            {
+                touchDirection = 1;
+            }
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            touchDirection = 1;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            touchDirection = -1;
+        }
         print(transform.position.x);
-        if(transform.position.x < 10.5 ){
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if (transform.position.x < 1.9)
         {
-            transform.Translate(Vector3.right * Time.deltaTime * 30);
+            if (touchDirection == 1)
+            {
+                transform.Translate(Vector3.right * Time.deltaTime * 20);
+            }
         }
-        }
-        if(transform.position.x > -10.5){
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (transform.position.x > -1.9)
         {
-            transform.Translate(Vector3.left * Time.deltaTime * 30);
-        }}      
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "ball")
-        {
-            world.Score();
-            rigidbody.AddForce(new Vector2(transform.position.x, 100));
+            if (touchDirection == -1)
+            {
+                transform.Translate(Vector3.left * Time.deltaTime * 20);
+            }
         }
     }
 }

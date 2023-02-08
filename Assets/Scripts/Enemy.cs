@@ -14,16 +14,16 @@ public class Enemy : MonoBehaviour
         //limit x to between -10.5 and 10.5
 
         float x = ball.CurrentX();
-        if (x > 10.5)
+        if (x > 1.9)
         {
-            x = 10.5f;
+            x = 1.9f;
         }
-        if (x < -10.5)
+        if (x < -1.9)
         {
-            x = -10.5f;
+            x = -1.9f;
         }
-        
-            transform.position = new Vector3(x, transform.position.y, transform.position.z);
+
+        transform.position = new Vector3(x, transform.position.y, transform.position.z);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

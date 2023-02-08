@@ -7,13 +7,13 @@ using TMPro;
 
 public class World : MonoBehaviour
 {
-    
+
     public TextMeshProUGUI scoreLabel;
     public TextMeshProUGUI Lives;
-    
-  public GameObject gameOverScreen;
-  
-  public TextMeshProUGUI highScoreLabel;
+
+    public GameObject gameOverScreen;
+
+    public TextMeshProUGUI highScoreLabel;
     int score;
     int highscore;
     int live;
@@ -21,13 +21,13 @@ public class World : MonoBehaviour
     {
         score = PlayerPrefs.GetInt("current");
         highscore = PlayerPrefs.GetInt("highscore");
-        live = PlayerPrefs.GetInt("Lives");     
-        print ("Lives" + live);
+        live = PlayerPrefs.GetInt("Lives");
+        print("Lives" + live);
     }
 
-     void Update()
+    void Update()
     {
-        scoreLabel.text = "Score: " + score;   
+        scoreLabel.text = "Score: " + score;
         Lives.text = "Lives: " + live;
     }
     public void Score()
@@ -39,59 +39,64 @@ public class World : MonoBehaviour
         }
     }
     public void Save()
-    {   
-        if(live > 0){
-        live--;
-        SceneManager.LoadScene(0);
+    {
+        if (live > 0)
+        {
+            live--;
+            SceneManager.LoadScene(0);
         }
-        if(score > PlayerPrefs.GetInt("highscore"))
+        if (score > PlayerPrefs.GetInt("highscore"))
         {
             PlayerPrefs.SetInt("highscore", score);
         }
-        if(PlayerPrefs.GetInt("Lives") == 0)
+        if (PlayerPrefs.GetInt("Lives") == 0)
         {
-            
+
             highScoreLabel.text = "High Score: " + highscore;
             Time.timeScale = 0;
             PlayerDied();
-            
+
             score = 0;
             live = 3;
             print("game over");
             PlayerPrefs.SetInt("Lives", 3);
             PlayerPrefs.SetInt("current", 0);
-            
-        }else
-        {
-        PlayerPrefs.SetInt("current", score);
-        PlayerPrefs.SetInt("highscore", highscore);
-        
-        highScoreLabel.text = "High Score: " + highscore;
-        PlayerPrefs.SetInt("Lives", live);  
+
         }
-        
-        
-        
+        else
+        {
+            PlayerPrefs.SetInt("current", score);
+            PlayerPrefs.SetInt("highscore", highscore);
+
+            highScoreLabel.text = "High Score: " + highscore;
+            PlayerPrefs.SetInt("Lives", live);
+        }
+
+
+
     }
-    public void PlayerDied(){
-          
-          if(score > highscore){
+    public void PlayerDied()
+    {
+
+        if (score > highscore)
+        {
             highscore = score;
             PlayerPrefs.SetInt("highscore", highscore);
-          }
-          
-          highScoreLabel.text = "High Score: " + highscore;
+        }
 
-          gameOverScreen.SetActive(true);
-          Time.timeScale = 0;
+        highScoreLabel.text = "High Score: " + highscore;
 
-      
+        gameOverScreen.SetActive(true);
+        Time.timeScale = 0;
+
+
     }
-    
-    public void PlayAgain(){
-      Time.timeScale = 1;
-      gameOverScreen.SetActive(false);
-      SceneManager.LoadScene(0);
+
+    public void PlayAgain()
+    {
+        Time.timeScale = 1;
+        gameOverScreen.SetActive(false);
+        SceneManager.LoadScene(0);
     }
 
 
