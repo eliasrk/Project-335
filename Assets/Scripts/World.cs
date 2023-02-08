@@ -19,20 +19,20 @@ public class World : MonoBehaviour
     int live;
     void Start()
     {
-        score = PlayerPrefs.GetInt("current");
         highscore = PlayerPrefs.GetInt("highscore");
         live = PlayerPrefs.GetInt("Lives");
-        print("Lives" + live);
     }
 
     void Update()
     {
-        scoreLabel.text = "Score: " + score;
-        Lives.text = "Lives: " + live;
+        scoreLabel.text = "Score: " + PlayerPrefs.GetInt("current");
+        Lives.text = "Rounds: " + live;
     }
     public void Score()
     {
+        score = PlayerPrefs.GetInt("current");
         score++;
+        PlayerPrefs.SetInt("current", score);
         if (score > highscore)
         {
             highscore = score;
@@ -40,6 +40,9 @@ public class World : MonoBehaviour
     }
     public void Save()
     {
+
+        score = PlayerPrefs.GetInt("current");
+        print(score);
         if (live > 0)
         {
             live--;
@@ -58,7 +61,6 @@ public class World : MonoBehaviour
 
             score = 0;
             live = 3;
-            print("game over");
             PlayerPrefs.SetInt("Lives", 3);
             PlayerPrefs.SetInt("current", 0);
 

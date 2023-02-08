@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -32,20 +30,26 @@ public class PlayerMovement : MonoBehaviour
         {
             touchDirection = -1;
         }
-        print(transform.position.x);
         if (transform.position.x < 1.9)
         {
             if (touchDirection == 1)
             {
-                transform.Translate(Vector3.right * Time.deltaTime * 20);
+                transform.Translate(Vector3.right * Time.deltaTime * 10);
             }
         }
         if (transform.position.x > -1.9)
         {
             if (touchDirection == -1)
             {
-                transform.Translate(Vector3.left * Time.deltaTime * 20);
+                transform.Translate(Vector3.left * Time.deltaTime * 10);
             }
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "ball")
+        {
+            rigidbody.AddForce(new Vector2(transform.position.x, transform.position.y));
         }
     }
 }

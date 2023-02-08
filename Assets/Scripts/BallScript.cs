@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BallScript : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class BallScript : MonoBehaviour
             {
                 //add force to make it go up faster
                 rigidbody.AddForce(new Vector2(transform.position.x, 10));
+
             }
         }
         if (rigidbody.velocity.y > -10)
@@ -33,7 +35,14 @@ public class BallScript : MonoBehaviour
             if (rigidbody.velocity.y < 0)
             {
                 rigidbody.AddForce(new Vector2(transform.position.x, -10));
+
             }
+        }
+
+        if (transform.position.x > 3 || transform.position.x < -3 || transform.position.y > 6 || transform.position.y < -6)
+        {
+
+            SceneManager.LoadScene(0);
         }
 
     }
