@@ -18,7 +18,12 @@ public class Enemy : MonoBehaviour
             x = ball.CurrentX();
             nextInterval = Time.time + 1f;
         } */
-        //if x is less than currentX add force to the right
+        /* 
+        *   it makes the enemy slowly track the ball 
+        *   originally had it track the ball constantly but it was too hard and you couldnt win 
+        *   making it update every second made it too slow
+        *   also limits how far left and right the enemy can move 
+        */
         if (x < ball.CurrentX())
         {
             x += 0.004f;
@@ -42,6 +47,7 @@ public class Enemy : MonoBehaviour
         //random number between 1 and 10
         transform.position = new Vector3(x, transform.position.y, transform.position.z);
     }
+    // * if the enemy collides with the ball it gives the ball a force
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "ball")

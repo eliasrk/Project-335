@@ -9,6 +9,7 @@ public class BallScript : MonoBehaviour
     float rand;
     private Rigidbody2D rb2d;
 
+    // * gives the ball a intial force 
     void Start()
     {
         rand = Random.Range(-7f, 7f);
@@ -16,7 +17,10 @@ public class BallScript : MonoBehaviour
         rigidbody.AddForce(new Vector2(10 * rand, 0));
     }
 
-    // Update is called once per frame
+    /* 
+    *   limits the speed of the ball
+    *   if th ball goes off the screen it resets the game
+    */
     void Update()
     {
         //check if its going up or down faster than 10
@@ -47,11 +51,14 @@ public class BallScript : MonoBehaviour
 
     }
 
+    // *    Gets current x position of ball for the enemy to use to track it 
     public float CurrentX()
     {
         float x = transform.position.x;
         return x;
     }
+    // * if it collides with the player it gets a force
+    // * if it collides with the delete it saves the score and resets the game
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Delete")

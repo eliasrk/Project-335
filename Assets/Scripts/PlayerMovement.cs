@@ -7,6 +7,11 @@ public class PlayerMovement : MonoBehaviour
     {
 
     }
+    /* 
+    * if the player presses the left or right arrow key it moves the player
+    * if the player touches the left or right side of the screen it moves the player
+    * limits how far left and right the player can move
+    */
     void Update()
     {
         int touchDirection = 0;
@@ -45,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    // * if the player collides with the ball it give the ball a force
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "ball")

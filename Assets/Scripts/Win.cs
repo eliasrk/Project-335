@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class Win : MonoBehaviour
 {
-    void Update()
-    {
 
-    }
+    // * if the ball collides with the win object it adds 50 points to the score    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "ball")
