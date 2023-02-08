@@ -12,7 +12,6 @@ public class World : MonoBehaviour
     public TextMeshProUGUI Lives;
 
     public GameObject gameOverScreen;
-    public GameObject StartMenu;
     public TextMeshProUGUI highScoreLabel;
     int score;
     int highscore;
@@ -22,7 +21,7 @@ public class World : MonoBehaviour
     {
         highscore = PlayerPrefs.GetInt("highscore");
         round = PlayerPrefs.GetInt("Lives");
-        Time.timeScale = 0;
+        Time.timeScale = 1;
     }
 
     // * updates the score and the rounds
@@ -104,9 +103,9 @@ public class World : MonoBehaviour
         }
 
         highScoreLabel.text = "High Score: " + highscore;
+        Time.timeScale = 0;
 
         gameOverScreen.SetActive(true);
-        Time.timeScale = 0;
 
     }
     /*
