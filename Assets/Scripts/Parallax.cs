@@ -23,50 +23,23 @@ public class Parallax : MonoBehaviour
     {
         if (x < player.CurrentX())
         {
-            x += 0.02f;
+            x += 0.01f;
+            x1 += 0.009f;
+            x2 += 0.007f;
+            x3 += 0.004f;
+            x4 += 0.002f;
+
         }
         //if x is greater than currentX add force to the left
         if (x > player.CurrentX())
         {
-            x -= 0.02f;
-        }
-        if (x1 < player.CurrentX())
-        {
-            x1 += 0.009f;
-        }
-        //if x is greater than currentX add force to the left
-        if (x1 > player.CurrentX())
-        {
+            x -= 0.01f;
             x1 -= 0.009f;
-        }
-        if (x2 < player.CurrentX())
-        {
-            x2 += 0.005f;
-        }
-        //if x is greater than currentX add force to the left
-        if (x2 > player.CurrentX())
-        {
-            x2 -= 0.005f;
-        }
-        if (x3 < player.CurrentX())
-        {
-            x3 += 0.002f;
-        }
-        //if x is greater than currentX add force to the left
-        if (x3 > player.CurrentX())
-        {
-            x3 -= 0.002f;
-        }
-        if (x4 < player.CurrentX())
-        {
-            x4 += 0.001f;
-        }
-        //if x is greater than currentX add force to the left
-        if (x4 > player.CurrentX())
-        {
-            x4 -= 0.001f;
-        }
+            x2 -= 0.007f;
+            x3 -= 0.004f;
+            x4 -= 0.002f;
 
+        }
 
         // move game object to the right
         Background1.transform.position = new Vector3(x, Background1.transform.position.y, Background1.transform.position.z);

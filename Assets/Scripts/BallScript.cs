@@ -63,7 +63,15 @@ public class BallScript : MonoBehaviour
                 rigidbody.AddForce(new Vector2(transform.position.x, -10));
 
             }
+        }/* 
+        if (rigidbody.velocity.x > 2)
+        {
+            rigidbody.velocity.x = 2;
         }
+        if (rigidbody.velocity.x < -2)
+        {
+            rigidbody.velocity.x = -2;
+        } */
 
         if (transform.position.x > 3 || transform.position.x < -3 || transform.position.y > 6 || transform.position.y < -6)
         {
