@@ -52,5 +52,11 @@ public class PlayerMovement : MonoBehaviour
                 transform.Translate(Vector3.left * Time.deltaTime * 10);
             }
         }
+
+    }
+    public float CurrentX()
+    {
+        float x = transform.position.x;
+        return x;
     }
 }

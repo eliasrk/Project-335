@@ -91,7 +91,7 @@ public class BallScript : MonoBehaviour
         {
             world.Score();
             // *    add a bit more side force to the ball
-            int rand = 10;
+            int rand = 100;
             if (transform.position.x > 0)
             {
                 rand = Math.Abs(rand);

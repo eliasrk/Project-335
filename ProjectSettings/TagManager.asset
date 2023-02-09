@@ -10,6 +10,7 @@ TagManager:
   - ball
   - points
   - Safe Area
+  - first
   layers:
   - Default
   - TransparentFX
