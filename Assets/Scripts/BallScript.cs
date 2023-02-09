@@ -66,16 +66,16 @@ public class BallScript : MonoBehaviour
         }
 
 
-        /* * attempt at limiting the speed horizontally 
-        if (rigidbody.velocity.x > 2)
+        // * attempt at limiting the speed horizontally 
+        if (rigidbody.velocity.x > 10)
         {
-            rigidbody.velocity.x = 2;
+            rigidbody.velocity = new Vector3(-10, transform.position.y, transform.position.z);
         }
-        if (rigidbody.velocity.x < -2)
+        if (rigidbody.velocity.x < -10)
         {
-            rigidbody.velocity.x = -2;
-        } */
-
+            rigidbody.velocity = new Vector3(10, transform.position.y, transform.position.z);
+        }
+        //* if the ball leaves the area it refreshes the scene
         if (transform.position.x > 3 || transform.position.x < -3 || transform.position.y > 6 || transform.position.y < -6)
         {
 

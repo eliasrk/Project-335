@@ -5,10 +5,6 @@ public class PlayerMovement : MonoBehaviour
     float gyroDirection;
     public new Rigidbody2D rigidbody;
     //if input.gryo enable &&  input.gyro.attitude,x !=0 angle = input.gyro.attitude.euelerangles.y  if >180 
-    void Start()
-    {
-
-    }
     /* 
     TODO: StoryBoard, Pictures,Design, Bibliography safe area update, Journals 
     /* 
@@ -23,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
         float touchDirection = 0;
         if (Input.touches.Length > 0)
         {
+            // * adds touch controls
             Touch touch = Input.touches[0];
             if (touch.position.x < Screen.width / 2)
             {
@@ -33,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
                 touchDirection = 1;
             }
         }
+        //* adds keyboard controls
         if (Input.GetKey(KeyCode.D))
         {
             touchDirection = 2;
@@ -44,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         Input.gyro.enabled = true;
 
 
-
+        //* adds gyro controls
         if (Input.gyro.enabled && Input.gyro.attitude.x != 0)
         {
             float angle = Input.gyro.attitude.eulerAngles.y;
@@ -60,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (transform.position.x < 1.9)
         {
-
+            //* having 0.5 creates a dead zone for the gyro controls so that it can stop moving when the phone is held straight
             if (touchDirection > 0 || gyroDirection > 0.5)
             {
                 transform.Translate(Vector3.right * Time.deltaTime * 5);
