@@ -25,24 +25,21 @@ public class BallScript : MonoBehaviour
     */
     void Update()
     {
-        //if the is between 1.6 and 2.11 for more than 2 seconds it gets a force to the left
-
         // * fixes the bug where the ball would get stuck at the side and you could get infinite points
         if (Time.time > tempTime)
         {
             print("add force");
+
+            //if the is between 1.6 and 2.11 for more than 2 seconds it gets a force to the left
             if (transform.position.x > 1.6 && transform.position.x < 2.11)
             {
                 rigidbody.AddForce(new Vector2(-100, 0));
             }
-
             //if the is between -1.6 and -2.11 for more than 2 seconds it gets a force to the right
             if (transform.position.x < -1.6 && transform.position.x > -2.11)
             {
                 rigidbody.AddForce(new Vector2(100, 0));
             }
-
-
             tempTime = Time.time + 2f;
         }
         //check if its going up or down faster than 10
@@ -53,7 +50,6 @@ public class BallScript : MonoBehaviour
             {
                 //add force to make it go up faster
                 rigidbody.AddForce(new Vector2(transform.position.x, 10));
-
             }
         }
         if (rigidbody.velocity.y > -10)
@@ -61,11 +57,8 @@ public class BallScript : MonoBehaviour
             if (rigidbody.velocity.y < 0)
             {
                 rigidbody.AddForce(new Vector2(transform.position.x, -10));
-
             }
         }
-
-
         // * attempt at limiting the speed horizontally 
         if (rigidbody.velocity.x > 10)
         {
@@ -78,7 +71,6 @@ public class BallScript : MonoBehaviour
         //* if the ball leaves the area it refreshes the scene
         if (transform.position.x > 3 || transform.position.x < -3 || transform.position.y > 6 || transform.position.y < -6)
         {
-
             SceneManager.LoadScene(0);
         }
 
