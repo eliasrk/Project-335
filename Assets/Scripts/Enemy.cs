@@ -26,12 +26,12 @@ public class Enemy : MonoBehaviour
         */
         if (x < ball.CurrentX())
         {
-            x += 0.004f;
+            x += 0.05f;
         }
         //if x is greater than currentX add force to the left
         if (x > ball.CurrentX())
         {
-            x -= 0.004f;
+            x -= 0.05f;
         }
 
 

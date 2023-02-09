@@ -9,6 +9,7 @@ TagManager:
   - Delete
   - ball
   - points
+  - Safe Area
   layers:
   - Default
   - TransparentFX

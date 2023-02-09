@@ -12,6 +12,8 @@ public class World : MonoBehaviour
     public TextMeshProUGUI Lives;
 
     public GameObject gameOverScreen;
+
+    public TextMeshProUGUI FinalScore;
     public TextMeshProUGUI highScoreLabel;
     int score;
     int highscore;
@@ -65,6 +67,7 @@ public class World : MonoBehaviour
         {
 
             highScoreLabel.text = "High Score: " + highscore;
+            FinalScore.text = "Score: " + score;
             Time.timeScale = 0;
             PlayerDied();
 

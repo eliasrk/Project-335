@@ -8,6 +8,7 @@ public class BallScript : MonoBehaviour
     float direction;
     public World world;
     float rand;
+    float tempTime;
     private Rigidbody2D rb2d;
 
     // * gives the ball a intial force 
@@ -15,6 +16,7 @@ public class BallScript : MonoBehaviour
     {
         rand = UnityEngine.Random.Range(-10f, 10f);
         rigidbody.AddForce(new Vector2(25 * rand, -10));
+        tempTime = Time.time + 2f;
     }
 
     /* 
@@ -23,6 +25,26 @@ public class BallScript : MonoBehaviour
     */
     void Update()
     {
+        //if the is between 1.6 and 2.11 for more than 2 seconds it gets a force to the left
+
+        // * fixes the bug where the ball would get stuck at the side and you could get infinite points
+        if (Time.time > tempTime)
+        {
+            print("add force");
+            if (transform.position.x > 1.6 && transform.position.x < 2.11)
+            {
+                rigidbody.AddForce(new Vector2(-100, 0));
+            }
+
+            //if the is between -1.6 and -2.11 for more than 2 seconds it gets a force to the right
+            if (transform.position.x < -1.6 && transform.position.x > -2.11)
+            {
+                rigidbody.AddForce(new Vector2(100, 0));
+            }
+
+
+            tempTime = Time.time + 2f;
+        }
         //check if its going up or down faster than 10
         if (rigidbody.velocity.y < 10)
         {
