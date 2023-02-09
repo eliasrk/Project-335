@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
 
     }
     /* 
+    TODO: StoryBoard, Pictures,Design, Bibliography safe area update, Journals 
+    /* 
     * ! add Motion controls for bonus points
     * 
     * if the player presses the left or right arrow key it moves the player
@@ -51,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
                 angle = (180 - (angle - 180)) * -1;
             }
             gyroDirection = Mathf.Clamp(angle / 15, -1, 1);
-            print(touchDirection);
         }
 
 
@@ -62,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
 
             if (touchDirection > 0 || gyroDirection > 0.5)
             {
-                print("moving right");
                 transform.Translate(Vector3.right * Time.deltaTime * 5);
             }
         }
@@ -70,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (touchDirection < 0 || gyroDirection < -0.5)
             {
-                print("moving left");
                 transform.Translate(Vector3.left * Time.deltaTime * 5);
             }
         }

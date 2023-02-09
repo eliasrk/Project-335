@@ -63,7 +63,10 @@ public class BallScript : MonoBehaviour
                 rigidbody.AddForce(new Vector2(transform.position.x, -10));
 
             }
-        }/* 
+        }
+
+
+        /* * attempt at limiting the speed horizontally 
         if (rigidbody.velocity.x > 2)
         {
             rigidbody.velocity.x = 2;

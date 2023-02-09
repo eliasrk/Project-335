@@ -22,7 +22,7 @@ public class World : MonoBehaviour
     void Start()
     {
         highscore = PlayerPrefs.GetInt("highscore");
-        round = PlayerPrefs.GetInt("Lives");
+        round = PlayerPrefs.GetInt("lives");
         Time.timeScale = 1;
     }
 
@@ -63,7 +63,7 @@ public class World : MonoBehaviour
         {
             PlayerPrefs.SetInt("highscore", score);
         }
-        if (PlayerPrefs.GetInt("Lives") == 0)
+        if (PlayerPrefs.GetInt("lives") == 0)
         {
 
             highScoreLabel.text = "High Score: " + highscore;
@@ -73,7 +73,7 @@ public class World : MonoBehaviour
 
             score = 0;
             round = 3;
-            PlayerPrefs.SetInt("Lives", 3);
+            PlayerPrefs.SetInt("lives", 3);
             PlayerPrefs.SetInt("current", 0);
 
         }
@@ -83,7 +83,7 @@ public class World : MonoBehaviour
             PlayerPrefs.SetInt("highscore", highscore);
 
             highScoreLabel.text = "High Score: " + highscore;
-            PlayerPrefs.SetInt("Lives", round);
+            PlayerPrefs.SetInt("lives", round);
         }
 
 
