@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class PlayerMovement : MonoBehaviour
 {
     float gyroDirection;
@@ -7,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
     //if input.gryo enable &&  input.gyro.attitude,x !=0 angle = input.gyro.attitude.euelerangles.y  if >180 
     /* 
     TODO:Pictures,Design, Bibliography, Journals, Reflexion, add table citations
-    
     /* 
     * ! add Motion controls for bonus points
     * 
@@ -41,8 +39,6 @@ public class PlayerMovement : MonoBehaviour
             touchDirection = -2;
         }
         Input.gyro.enabled = true;
-
-
         //* adds gyro controls
         if (Input.gyro.enabled && Input.gyro.attitude.x != 0)
         {
@@ -53,10 +49,6 @@ public class PlayerMovement : MonoBehaviour
             }
             gyroDirection = Mathf.Clamp(angle / 15, -1, 1);
         }
-
-
-
-
         if (transform.position.x < 1.9)
         {
             //* having 0.5 creates a dead zone for the gyro controls so that it can stop moving when the phone is held straight
@@ -72,7 +64,6 @@ public class PlayerMovement : MonoBehaviour
                 transform.Translate(Vector3.left * Time.deltaTime * 5);
             }
         }
-
     }
     public float CurrentX()
     {

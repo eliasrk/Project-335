@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public class BallScript : MonoBehaviour
 {
     public new Rigidbody2D rigidbody;
@@ -10,7 +9,6 @@ public class BallScript : MonoBehaviour
     float rand;
     float tempTime;
     private Rigidbody2D rb2d;
-
     // * gives the ball a intial force 
     void Start()
     {
@@ -18,7 +16,6 @@ public class BallScript : MonoBehaviour
         rigidbody.AddForce(new Vector2(25 * rand, -10));
         tempTime = Time.time + 2f;
     }
-
     /* 
     *   limits the speed of the ball
     *   if th ball goes off the screen it resets the game
@@ -29,7 +26,6 @@ public class BallScript : MonoBehaviour
         if (Time.time > tempTime)
         {
             print("add force");
-
             //if the is between 1.6 and 2.11 for more than 2 seconds it gets a force to the left
             if (transform.position.x > 1.6 && transform.position.x < 2.11)
             {
@@ -43,9 +39,7 @@ public class BallScript : MonoBehaviour
             tempTime = Time.time + 2f;
         }
         constrainst();
-
     }
-
     // *    Gets current x position of ball for the enemy to use to track it 
     public float CurrentX()
     {
@@ -62,7 +56,6 @@ public class BallScript : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player")
         {
-
             Handheld.Vibrate();
             world.Score();
             // *    add a bit more side force to the ball
@@ -77,11 +70,9 @@ public class BallScript : MonoBehaviour
             }
             rigidbody.AddForce(new Vector2(transform.position.x + rand, 100));
         }
-
     }
     private void constrainst()
     {
-
         //check if its going up or down faster than 10
         if (rigidbody.velocity.y < 10)
         {
@@ -114,6 +105,4 @@ public class BallScript : MonoBehaviour
             SceneManager.LoadScene(0);
         }
     }
-
-
 }

@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class Enemy : MonoBehaviour
 {
     public new Rigidbody2D rigidbody;
@@ -7,17 +6,8 @@ public class Enemy : MonoBehaviour
     float rand;
     float nextInterval;
     float x;
-    void Start()
-    {
-    }
     void Update()
     {
-        /* if (Time.time > nextInterval)
-        {
-
-            x = ball.CurrentX();
-            nextInterval = Time.time + 1f;
-        } */
         /* 
         *   it makes the enemy slowly track the ball 
         *   originally had it track the ball constantly but it was too hard and you couldnt win 
@@ -33,9 +23,6 @@ public class Enemy : MonoBehaviour
         {
             x -= 0.05f;
         }
-
-
-
         if (x > 1.9)
         {
             x = 1.9f;

@@ -1,18 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using UnityEngine.SceneManagement;
 using TMPro;
-
 public class World : MonoBehaviour
 {
-
     public TextMeshProUGUI scoreLabel;
     public TextMeshProUGUI Lives;
-
     public GameObject gameOverScreen;
-
     public TextMeshProUGUI FinalScore;
     public TextMeshProUGUI highScoreLabel;
     int score;
@@ -25,7 +20,6 @@ public class World : MonoBehaviour
         round = PlayerPrefs.GetInt("lives");
         Time.timeScale = 1;
     }
-
     // * updates the score and the rounds
     void Update()
     {
@@ -51,7 +45,6 @@ public class World : MonoBehaviour
     */
     public void Save()
     {
-
         score = PlayerPrefs.GetInt("current");
         print(score);
         if (round > 0)
@@ -65,31 +58,23 @@ public class World : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("lives") == 0)
         {
-
             highScoreLabel.text = "High Score: " + highscore;
             FinalScore.text = "Score: " + score;
             Time.timeScale = 0;
             PlayerDied();
-
             score = 0;
             round = 3;
             PlayerPrefs.SetInt("lives", 3);
             PlayerPrefs.SetInt("current", 0);
-
         }
         else
         {
             PlayerPrefs.SetInt("current", score);
             PlayerPrefs.SetInt("highscore", highscore);
-
             highScoreLabel.text = "High Score: " + highscore;
             PlayerPrefs.SetInt("lives", round);
         }
-
-
-
     }
-
     /* 
     * Updates the high score if the current score is higher than the high score
     * and displays the game over screen
@@ -97,19 +82,14 @@ public class World : MonoBehaviour
     */
     public void PlayerDied()
     {
-
-
         if (score > highscore)
         {
             highscore = score;
             PlayerPrefs.SetInt("highscore", highscore);
         }
-
         highScoreLabel.text = "High Score: " + highscore;
         Time.timeScale = 0;
-
         gameOverScreen.SetActive(true);
-
     }
     /*
     * Resets the game and reloads the scene
@@ -121,6 +101,4 @@ public class World : MonoBehaviour
         gameOverScreen.SetActive(false);
         SceneManager.LoadScene(1);
     }
-
-
 }
