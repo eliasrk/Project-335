@@ -42,37 +42,7 @@ public class BallScript : MonoBehaviour
             }
             tempTime = Time.time + 2f;
         }
-        //check if its going up or down faster than 10
-        if (rigidbody.velocity.y < 10)
-        {
-            //if its going up
-            if (rigidbody.velocity.y > 0)
-            {
-                //add force to make it go up faster
-                rigidbody.AddForce(new Vector2(transform.position.x, 10));
-            }
-        }
-        if (rigidbody.velocity.y > -10)
-        {
-            if (rigidbody.velocity.y < 0)
-            {
-                rigidbody.AddForce(new Vector2(transform.position.x, -10));
-            }
-        }
-        // * attempt at limiting the speed horizontally 
-        if (rigidbody.velocity.x > 10)
-        {
-            rigidbody.velocity = new Vector3(-10, transform.position.y, transform.position.z);
-        }
-        if (rigidbody.velocity.x < -10)
-        {
-            rigidbody.velocity = new Vector3(10, transform.position.y, transform.position.z);
-        }
-        //* if the ball leaves the area it refreshes the scene
-        if (transform.position.x > 3 || transform.position.x < -3 || transform.position.y > 6 || transform.position.y < -6)
-        {
-            SceneManager.LoadScene(0);
-        }
+        constrainst();
 
     }
 
@@ -108,6 +78,41 @@ public class BallScript : MonoBehaviour
             rigidbody.AddForce(new Vector2(transform.position.x + rand, 100));
         }
 
+    }
+    private void constrainst()
+    {
+
+        //check if its going up or down faster than 10
+        if (rigidbody.velocity.y < 10)
+        {
+            //if its going up
+            if (rigidbody.velocity.y > 0)
+            {
+                //add force to make it go up faster
+                rigidbody.AddForce(new Vector2(transform.position.x, 10));
+            }
+        }
+        if (rigidbody.velocity.y > -10)
+        {
+            if (rigidbody.velocity.y < 0)
+            {
+                rigidbody.AddForce(new Vector2(transform.position.x, -10));
+            }
+        }
+        // * attempt at limiting the speed horizontally 
+        if (rigidbody.velocity.x > 10)
+        {
+            rigidbody.velocity = new Vector3(-10, transform.position.y, transform.position.z);
+        }
+        if (rigidbody.velocity.x < -10)
+        {
+            rigidbody.velocity = new Vector3(10, transform.position.y, transform.position.z);
+        }
+        //* if the ball leaves the area it refreshes the scene
+        if (transform.position.x > 3 || transform.position.x < -3 || transform.position.y > 6 || transform.position.y < -6)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
 

@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public new Rigidbody2D rigidbody;
     //if input.gryo enable &&  input.gyro.attitude,x !=0 angle = input.gyro.attitude.euelerangles.y  if >180 
     /* 
-    TODO: StoryBoard, Pictures,Design, Bibliography safe area update, Journals, Reflexion, add table citations
+    TODO:Pictures,Design, Bibliography, Journals, Reflexion, add table citations
     
     /* 
     * ! add Motion controls for bonus points

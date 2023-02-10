@@ -57,7 +57,7 @@ public class World : MonoBehaviour
         if (round > 0)
         {
             round--;
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
         if (score > PlayerPrefs.GetInt("highscore"))
         {
@@ -119,7 +119,7 @@ public class World : MonoBehaviour
     {
         Time.timeScale = 1;
         gameOverScreen.SetActive(false);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
 
