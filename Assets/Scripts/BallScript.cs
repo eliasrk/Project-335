@@ -100,6 +100,8 @@ public class BallScript : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player")
         {
+
+            Handheld.Vibrate();
             world.Score();
             // *    add a bit more side force to the ball
             int rand = 100;
